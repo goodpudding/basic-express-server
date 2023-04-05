@@ -5,7 +5,7 @@ Import this into your server and set it up to be “used” after your other rou
 
 function notFoundError (error, request, response, next){
   console.log('Not Found', request.path);
-  response.status(200).send('Hello');
+  response.status(404).send('Hello');
 }
 
 module.exports = notFoundError;

@@ -11,11 +11,11 @@ const notFoundError = require('./error-handlers/404');
 app.use(cors());
 app.use(logger);
 
-const data = [];
+const data = [{name: 'trey'}];
 
 
-app.get('/person', (request, response, next) => {
-  response.send(data);
+app.get('/person',(request, response, next) => {
+  response.status(200).json(data);
 });
 
 app.post('/person', validator, (request, response, next) => {
@@ -24,11 +24,12 @@ app.post('/person', validator, (request, response, next) => {
 });
 
 app.use(serverError);
-app.get('/taco', notFoundError);
+app.use('*', notFoundError);
 
 
 module.exports = {
+  app,
   start: (port) => app.listen(port, () => {
-    console.log('Server is listening');
+    console.log('Server is listening on', port);
   }),
 };

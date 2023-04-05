@@ -7,7 +7,7 @@ Import this into your server and set it up to be “used” as the last route
 'use strict';
 
 function serverError(error, request, response, next){
-  // console.log('Server Error', error);
+  console.log('Server Error', error);
   response.status(500).send('Server Error' + error);
 }
 

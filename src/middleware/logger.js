@@ -1,7 +1,7 @@
 'use strict';
 
 function logger(request, response, next) {
-  console.log(request.method, request.path);
+  console.log('Incoming Request: ', request.method, request.path);
   next();
 }
 
